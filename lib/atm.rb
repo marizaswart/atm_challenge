@@ -3,4 +3,5 @@ class Atm
 
   def initialize
     @funds = 1000
+  end
 end
