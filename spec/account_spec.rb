@@ -2,8 +2,8 @@ require './lib/account'
 require 'date'
 
 describe Account do
-  let(:person) { instance_double('Person', name: 'Mariza') }
-  subject { described_class.new(owner: person) }
+  let(:person) { instance_double('Person', name: 'Mariza') } #let (any person...)
+  subject { described_class.new(owner: person) } #described_class = Account, add in owner and person
 
   it 'is expected to have an owner' do
     expect(subject.owner).to eq person
@@ -14,7 +14,7 @@ describe Account do
   end
 
   it 'check lenght of the pin number' do
-    pin_length = Math.log10(subject.pin_code).to_i + 1
+    pin_length = Math.log10(subject.pin_code).to_i + 1 # 1234 = 123,4 = 123 +1 1234 = 4
     expect(pin_length).to eq 4
   end
 
@@ -27,8 +27,8 @@ describe Account do
     expect(subject.account_status).to eq :active
   end
 
-  it 'deactivates account using Insance method' do
-    subject.deactivate
+  it 'deactivates account using Instance method' do
+    subject.deactivate                                  # spef method
     expect(subject.account_status).to eq :deactivated
   end
 

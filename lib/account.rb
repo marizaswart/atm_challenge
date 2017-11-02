@@ -4,7 +4,7 @@ class Account
 
   attr_accessor :pin_code, :account_status, :owner, :balance
 
-  def initialize(attrs = {})
+  def initialize(attrs = {}) #it is a hash that allows you to give as many arguments as you would like (needs symbol?)
     @pin_code = generate_pin
     @account_status = :active
     @balance = 0
@@ -26,7 +26,7 @@ class Account
   end
 
   def create_owner(person)
-    person == nil ? missing_owner : @owner = person
+    person == nil ? missing_owner : @owner = person #If person = 0 call on missing owner else person
   end
 
   def missing_owner
