@@ -16,11 +16,12 @@ describe Person do
   it 'is expected to have a :cash attribute with value of 0 on initialize' do
     expect(subject.cash).to eq 0
   end
-=begin
+
   it 'is expected to have a :account attribute' do
     expect(subject.account).to be nil
   end
 end
+=begin
   describe 'can create an Account' do
     before { subject.create_account }
     it 'of Account class' do
@@ -44,5 +45,5 @@ end
       expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
     end
   end
-=end
 end
+=end

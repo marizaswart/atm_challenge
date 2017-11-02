@@ -1,10 +1,11 @@
 # :name :cash :account
 class Person
-  attr_accessor :name, :cash
+  attr_accessor :name, :cash, :account
 
   def initialize(attrs = {})
     username(attrs[:name])
     @cash = 0
+    user_account(attrs[:account])
   end
 
   def username(name)
@@ -14,6 +15,12 @@ class Person
 
   def missing_name
     raise 'A name is required'
+  end
+
+  private
+
+  def user_account(account)
+    account == nil
   end
 
 end
