@@ -8,6 +8,10 @@ class Person
 
   def username(name)
     name == nil ? missing_name : @name = name
+    #name.nil? ? missing_name : name
   end
 
+  def missing_name
+    raise 'A name is required'
+  end
 end
