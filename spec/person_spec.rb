@@ -20,8 +20,7 @@ describe Person do
   it 'is expected to have a :account attribute' do
     expect(subject.account).to be nil
   end
-end
-=begin
+
   describe 'can create an Account' do
     before { subject.create_account }
     it 'of Account class' do
@@ -32,7 +31,7 @@ end
       expect(subject.account.owner).to be subject
     end
   end
-
+=begin
   describe 'can manage funds if an has account been creaded' do
     let(:atm) { ATM.new }
     before { subject.create_account }
@@ -45,5 +44,5 @@ end
       expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
     end
   end
-end
 =end
+end

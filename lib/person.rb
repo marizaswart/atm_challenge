@@ -1,10 +1,12 @@
-# :name :cash :account
+#require './lib/account'
+
 class Person
   attr_accessor :name, :cash, :account
 
   def initialize(attrs = {})
-    username(attrs[:name])
+    @name = username(attrs[:name])
     @cash = 0
+    @account = nil
     user_account(attrs[:account])
   end
 
@@ -15,6 +17,10 @@ class Person
 
   def missing_name
     raise 'A name is required'
+  end
+
+  def create_account
+    @account = Account.new(owner: self)
   end
 
   private
