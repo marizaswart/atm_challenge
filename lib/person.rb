@@ -7,7 +7,6 @@ class Person
     @name = username(attrs[:name])
     @cash = 0
     @account = nil
-    user_account(attrs[:account])
   end
 
   def username(name)
@@ -23,10 +22,19 @@ class Person
     @account = Account.new(owner: self)
   end
 
+  def deposit(amount)
+    @account == nil ? no_account : deposit_cash(amount)
+  end
+
+  def no_account
+    raise 'No account present'
+  end
+
   private
 
-  def user_account(account)
-    account == nil
+  def deposit_cash(amount)
+    @cash -= amount
+    account.balance += amount
   end
 
 end

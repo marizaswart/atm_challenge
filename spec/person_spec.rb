@@ -1,5 +1,6 @@
 require './lib/person'
 require './lib/atm'
+require './lib/account'
 require 'date'
 
 describe Person do
@@ -23,26 +24,26 @@ describe Person do
 
   describe 'can create an Account' do
     before { subject.create_account }
-    it 'of Account class' do
+    it 'of Account class ' do
       expect(subject.account).to be_an_instance_of Account
     end
 
-    it 'with himself as an owner' do
+    it 'with themself as an owner' do
       expect(subject.account.owner).to be subject
     end
   end
-=begin
-  describe 'can manage funds if an has account been creaded' do
+
+  describe 'can manage funds if an account has been created' do
     let(:atm) { ATM.new }
     before { subject.create_account }
     it 'can deposit funds' do
       expect(subject.deposit(100)).to be_truthy
     end
 
-  describe 'can not manage funds if no account has been created' do
-    it 'can\'t deposit funds' do
-      expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
+    describe 'can not manage funds if no account has been created' do
+      it 'can\'t deposit funds' do
+        expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')
+      end
     end
   end
-=end
 end
