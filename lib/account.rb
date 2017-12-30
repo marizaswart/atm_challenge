@@ -26,7 +26,7 @@ class Account
   end
 
   def create_owner(person)
-    person == nil ? missing_owner : @owner = person #If person = 0 call on missing owner else person
+    person.nil? ? missing_owner : @owner = person #If person = 0 call on missing owner else person
   end
 
   def missing_owner
